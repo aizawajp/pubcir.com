@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PUBCIR｜デジタル技術でものづくりを次のレベルへ</title>
+  <meta name="description" content="ソフトウェア開発で、製造現場の自動化・デジタル化を実現します。PLCを使用したIoTソリューション、SCADAソフトウェア開発。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="https://pubcir.net/wp-content/uploads/2024/07/pubcir_logo_23.png" alt="PUBCIR">
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="global-nav" id="globalNav">
+        <ul>
+          <li><a href="index.html" class="active">TOP</a></li>
+          <li><a href="company.html">会社概要</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg" style="background-image:url('https://pubcir.net/wp-content/uploads/2024/08/29417635_m-1024x681.jpg')"></div>
+    <div class="hero-content">
+      <h1>デジタル技術でものづくりを次のレベルへ</h1>
+      <p>ソフトウェア開発で、製造現場の自動化・デジタル化を実現します</p>
+    </div>
+  </section>
+
+  <!-- 事業案内 -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-heading">
+        <h2>事業案内</h2>
+        <span class="en">our products</span>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h3>PLCを使用したIoTソリューション</h3>
+          <p>トレーサビリティシステム、工程飛ばし監視など、PLCを使用したカスタムIoTソリューションを提供します。</p>
+        </div>
+        <div class="card">
+          <h3>SCADAソフトウェア開発</h3>
+          <p>お客様の活用方法に合わせた、SCADAソフトウェアの設計と開発をサポートします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 課題と解決策 -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-heading">
+        <h2>これまでの課題と弊社を通した解決策</h2>
+        <span class="en">Challenges &amp; Solutions</span>
+      </div>
+      <div class="challenge-box">
+        <h3>ハード設計は得意でも、ソフトウェア開発が課題の装置メーカー様へ</h3>
+        <p>ソフトウェア開発のリソース不足や、IoT分野での知識不足にお困りではありませんか？</p>
+        <p style="margin-top:12px;">私たちの経験豊富なチームが、御社の課題を解決し、最適なソリューションを提供します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 実績 -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-heading">
+        <h2>実績</h2>
+        <span class="en">Achievements</span>
+      </div>
+      <div class="achievement-list">
+        <div class="achievement-item">
+          <h3>自動車関連トレーサビリティシステムの構築</h3>
+          <p>自動車業界のお客様向けに、数十台の設備からリアルタイムでセンシングされたデータを製品シリアルに紐づけ、データベースに保存するトレーサビリティシステムを構築しました。異常が発生した際にはその製品シリアルを基に過去のデータを迅速に追跡し、製品の状態や関連する製品の特定が可能となります。このシステムにより、品質管理の効率化と迅速なトラブルシューティングが可能となりました。</p>
+        </div>
+        <div class="achievement-item">
+          <h3>SCADAソフトウェアの開発</h3>
+          <p>製造プロセスの最適化と品質管理を強化するため、生産用レシピの保存・転送機能、温度情報などの記録機能、これらのデータをグラフ表示する機能、さらに警報の現在状況や履歴を表示する機能を備えたSCADAソフトウェアを開発しました。このシステムにより、リアルタイムでの生産管理が可能となり、工場の稼働効率と品質監視の精度が向上しました。</p>
+        </div>
+        <div class="achievement-item">
+          <h3>工場内AGV制御システムの構築</h3>
+          <p>製造業の現場での自動化を促進するため、工場内で使用されるAGVの制御システムを構築しました。AGVとの通信部分の開発から、AGVの運行を一元管理するシステムの構築まで行いました。このシステムにより、工場内の搬送プロセスが効率化され、無駄のない運用が可能になりました。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <a href="index.html" class="footer-logo">
+      <img src="https://pubcir.net/wp-content/uploads/2024/07/pubcir_logo_23.png" alt="PUBCIR">
+    </a>
+    <small>&copy; 2024 PUBCIR.</small>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function () {
+      document.getElementById('globalNav').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

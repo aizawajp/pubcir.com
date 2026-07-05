@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ご依頼・お問い合わせ｜PUBCIR</title>
+  <meta name="description" content="PUBCIRへのお仕事のご依頼・お問い合わせはこちらから。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="https://pubcir.net/wp-content/uploads/2024/07/pubcir_logo_23.png" alt="PUBCIR">
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="global-nav" id="globalNav">
+        <ul>
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="company.html">会社概要</a></li>
+          <li><a href="contact.html" class="active">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>ご依頼・お問い合わせ</h1>
+    <span class="en">Request・Contact</span>
+  </div>
+
+  <!-- Content -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="contact-body">
+        <p class="lead">
+          お仕事のご依頼・お問い合わせについては下記リンクよりご登録ください。<br>
+          内容を確認後、弊社からご連絡させていただきます。
+        </p>
+        <a href="https://forms.office.com/r/dQQ1ZHqTfq" class="btn-primary" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="index.html">ホーム</a> &gt; お問い合わせ
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <a href="index.html" class="footer-logo">
+      <img src="https://pubcir.net/wp-content/uploads/2024/07/pubcir_logo_23.png" alt="PUBCIR">
+    </a>
+    <small>&copy; 2024 PUBCIR.</small>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function () {
+      document.getElementById('globalNav').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
