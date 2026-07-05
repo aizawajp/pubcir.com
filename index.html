@@ -3,111 +3,465 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PUBCIR｜デジタル技術でものづくりを次のレベルへ</title>
-  <meta name="description" content="ソフトウェア開発で、製造現場の自動化・デジタル化を実現します。PLCを使用したIoTソリューション、SCADAソフトウェア開発。">
+  <title>パブサー合同会社 | 製造業向けソフトウェア開発・PLC IoT・SCADA</title>
+  <meta name="description" content="パブサー合同会社は、製造業向けにPLCを活用したIoTソリューション、SCADAソフトウェア、トレーサビリティシステムを提供します。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <!-- Header -->
-  <header class="site-header">
+  <header class="site-header" id="header">
     <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="https://pubcir.net/wp-content/uploads/2024/07/pubcir_logo_23.png" alt="PUBCIR">
+      <a href="#top" class="logo">
+        <span class="logo-text">PUBCIR</span>
+        <span class="logo-sub">LLC</span>
       </a>
       <button class="hamburger" id="hamburger" aria-label="メニュー">
         <span></span><span></span><span></span>
       </button>
       <nav class="global-nav" id="globalNav">
         <ul>
-          <li><a href="index.html" class="active">TOP</a></li>
-          <li><a href="company.html">会社概要</a></li>
-          <li><a href="contact.html">お問い合わせ</a></li>
+          <li><a href="#top" class="active">TOP</a></li>
+          <li><a href="#service">SERVICE</a></li>
+          <li><a href="#solution">SOLUTION</a></li>
+          <li><a href="#case">CASE</a></li>
+          <li><a href="company.html">COMPANY</a></li>
+          <li><a href="contact.html" class="nav-cta">CONTACT</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-bg" style="background-image:url('https://pubcir.net/wp-content/uploads/2024/08/29417635_m-1024x681.jpg')"></div>
-    <div class="hero-content">
-      <h1>デジタル技術でものづくりを次のレベルへ</h1>
-      <p>ソフトウェア開発で、製造現場の自動化・デジタル化を実現します</p>
+  <!-- Hero Section -->
+  <section class="hero" id="top">
+    <div class="hero-bg">
+      <div class="hero-grid-lines"></div>
+      <div class="hero-particles"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <h1 class="fade-in-up">製造現場のデータを、<br>使えるシステムへ。</h1>
+        <p class="hero-subtitle fade-in-up delay-1">
+          PLC・SCADA・IoT・トレーサビリティをつなぎ、<br class="sp-hide">現場に根づくソフトウェアを設計・開発します。
+        </p>
+        <p class="hero-desc fade-in-up delay-2">
+          設備制御からデータ収集、可視化、DB連携、運用改善まで。<br class="sp-hide">パブサーは、製造現場のリアルな課題に寄り添う技術パートナーです。
+        </p>
+        <div class="hero-cta fade-in-up delay-3">
+          <a href="contact.html" class="btn btn-primary btn-glow">まずは相談する</a>
+          <a href="#service" class="btn btn-secondary">できることを見る</a>
+        </div>
+        <div class="hero-tags fade-in-up delay-4">
+          <span class="tag"><span class="tag-icon">⚡</span>PLC / IoT</span>
+          <span class="tag"><span class="tag-icon">📊</span>SCADA / 可視化</span>
+          <span class="tag"><span class="tag-icon">🔗</span>Traceability / DB</span>
+        </div>
+      </div>
+      <div class="hero-visual fade-in-up delay-2">
+        <div class="visual-diagram">
+          <svg viewBox="0 0 500 450" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#0891B2;stop-opacity:0.8"/>
+                <stop offset="100%" style="stop-color:#14B8A6;stop-opacity:0.4"/>
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <!-- Connection Lines -->
+            <path class="data-line" d="M100,80 L250,80 L250,150" stroke="url(#lineGradient)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+            <path class="data-line delay-line-1" d="M400,80 L250,80 L250,150" stroke="url(#lineGradient)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+            <path class="data-line delay-line-2" d="M250,200 L250,250" stroke="url(#lineGradient)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+            <path class="data-line delay-line-3" d="M250,310 L150,370" stroke="url(#lineGradient)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+            <path class="data-line delay-line-4" d="M250,310 L350,370" stroke="url(#lineGradient)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+            <!-- PLC Node -->
+            <rect x="55" y="45" width="90" height="60" rx="12" fill="rgba(8,145,178,0.06)" stroke="#0891B2" stroke-width="1.5" filter="url(#glow)"/>
+            <text x="100" y="72" text-anchor="middle" fill="#0891B2" font-size="11" font-weight="600">PLC</text>
+            <text x="100" y="90" text-anchor="middle" fill="#64748B" font-size="9">制御装置</text>
+            <!-- Sensor Node -->
+            <rect x="355" y="45" width="90" height="60" rx="12" fill="rgba(20,184,166,0.06)" stroke="#14B8A6" stroke-width="1.5" filter="url(#glow)"/>
+            <text x="400" y="72" text-anchor="middle" fill="#14B8A6" font-size="11" font-weight="600">Sensor</text>
+            <text x="400" y="90" text-anchor="middle" fill="#64748B" font-size="9">センサー</text>
+            <!-- Data Collection Node -->
+            <rect x="185" y="145" width="130" height="60" rx="12" fill="rgba(8,145,178,0.08)" stroke="#0891B2" stroke-width="1.5" filter="url(#glow)"/>
+            <text x="250" y="172" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="600">Data Collection</text>
+            <text x="250" y="190" text-anchor="middle" fill="#64748B" font-size="9">データ収集・変換</text>
+            <!-- Database Node -->
+            <rect x="185" y="250" width="130" height="60" rx="12" fill="rgba(6,182,212,0.06)" stroke="#06B6D4" stroke-width="1.5" filter="url(#glow)"/>
+            <text x="250" y="277" text-anchor="middle" fill="#0891B2" font-size="11" font-weight="600">Database</text>
+            <text x="250" y="295" text-anchor="middle" fill="#64748B" font-size="9">蓄積・管理</text>
+            <!-- SCADA Node -->
+            <rect x="80" y="355" width="130" height="60" rx="12" fill="rgba(8,145,178,0.06)" stroke="#0891B2" stroke-width="1.5" filter="url(#glow)"/>
+            <text x="145" y="382" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="600">SCADA</text>
+            <text x="145" y="400" text-anchor="middle" fill="#64748B" font-size="9">監視・可視化</text>
+            <!-- Dashboard Node -->
+            <rect x="290" y="355" width="130" height="60" rx="12" fill="rgba(20,184,166,0.06)" stroke="#14B8A6" stroke-width="1.5" filter="url(#glow)"/>
+            <text x="355" y="382" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="600">Dashboard</text>
+            <text x="355" y="400" text-anchor="middle" fill="#64748B" font-size="9">分析・改善</text>
+            <!-- Animated dots -->
+            <circle r="3" fill="#0891B2" filter="url(#glow)">
+              <animateMotion dur="3s" repeatCount="indefinite" path="M100,80 L250,80 L250,150"/>
+            </circle>
+            <circle r="3" fill="#14B8A6" filter="url(#glow)">
+              <animateMotion dur="3s" repeatCount="indefinite" path="M400,80 L250,80 L250,150" begin="1s"/>
+            </circle>
+            <circle r="3" fill="#06B6D4" filter="url(#glow)">
+              <animateMotion dur="2s" repeatCount="indefinite" path="M250,200 L250,250" begin="0.5s"/>
+            </circle>
+            <circle r="3" fill="#0891B2" filter="url(#glow)">
+              <animateMotion dur="2.5s" repeatCount="indefinite" path="M250,310 L150,370" begin="1.5s"/>
+            </circle>
+            <circle r="3" fill="#14B8A6" filter="url(#glow)">
+              <animateMotion dur="2.5s" repeatCount="indefinite" path="M250,310 L350,370" begin="2s"/>
+            </circle>
+          </svg>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 事業案内 -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="section-heading">
-        <h2>事業案内</h2>
-        <span class="en">our products</span>
+  <!-- Problem Section -->
+  <section class="section section-alt" id="problem">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="section-label">PROBLEM</span>
+        <h2 class="section-title">こんな課題、現場に眠っていませんか？</h2>
       </div>
-      <div class="card-grid">
-        <div class="card">
-          <h3>PLCを使用したIoTソリューション</h3>
-          <p>トレーサビリティシステム、工程飛ばし監視など、PLCを使用したカスタムIoTソリューションを提供します。</p>
+      <div class="problem-grid">
+        <div class="problem-card scroll-reveal">
+          <div class="problem-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+          </div>
+          <p class="problem-text">設備データを取りたいが、PLCや通信の知識がネックになっている</p>
         </div>
-        <div class="card">
-          <h3>SCADAソフトウェア開発</h3>
-          <p>お客様の活用方法に合わせた、SCADAソフトウェアの設計と開発をサポートします。</p>
+        <div class="problem-card scroll-reveal">
+          <div class="problem-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <p class="problem-text">Excelや紙の記録が多く、トレーサビリティが属人化している</p>
+        </div>
+        <div class="problem-card scroll-reveal">
+          <div class="problem-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <p class="problem-text">SCADAや監視画面を作りたいが、自社に開発リソースがない</p>
+        </div>
+        <div class="problem-card scroll-reveal">
+          <div class="problem-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          </div>
+          <p class="problem-text">工程飛ばしや作業ミスをシステムで防ぎたい</p>
+        </div>
+        <div class="problem-card scroll-reveal">
+          <div class="problem-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <p class="problem-text">装置メーカーとして、ソフトウェア部分の提案力を強化したい</p>
+        </div>
+        <div class="problem-card scroll-reveal">
+          <div class="problem-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <p class="problem-text">SIerに頼むほど大規模ではないが、現場に合ったシステムが欲しい</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 課題と解決策 -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="section-heading">
-        <h2>これまでの課題と弊社を通した解決策</h2>
-        <span class="en">Challenges &amp; Solutions</span>
+  <!-- Service Section -->
+  <section class="section section-light" id="service">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="section-label">SERVICE</span>
+        <h2 class="section-title">現場とシステムをつなぐ、開発支援。</h2>
       </div>
-      <div class="challenge-box">
-        <h3>ハード設計は得意でも、ソフトウェア開発が課題の装置メーカー様へ</h3>
-        <p>ソフトウェア開発のリソース不足や、IoT分野での知識不足にお困りではありませんか？</p>
-        <p style="margin-top:12px;">私たちの経験豊富なチームが、御社の課題を解決し、最適なソリューションを提供します。</p>
+      <div class="service-grid">
+        <div class="service-card scroll-reveal">
+          <div class="service-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0891B2" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="service-title">PLC IoTソリューション</h3>
+          <p class="service-desc">PLCから設備データを取得し、データベースやクラウド、社内システムへ連携。稼働状況、品質情報、センサー値などを活用できる形に整えます。</p>
+          <div class="service-tags">
+            <span class="pill">PLCデータ収集</span>
+            <span class="pill">DB連携</span>
+            <span class="pill">設備稼働監視</span>
+            <span class="pill">工程飛ばし監視</span>
+          </div>
+        </div>
+        <div class="service-card scroll-reveal">
+          <div class="service-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="1.5"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="service-title">SCADA・監視画面開発</h3>
+          <p class="service-desc">製造現場の状態を見える化する監視画面や操作画面を設計・開発。現場担当者が直感的に使えるUIを重視します。</p>
+          <div class="service-tags">
+            <span class="pill">稼働監視画面</span>
+            <span class="pill">グラフ表示</span>
+            <span class="pill">アラーム履歴</span>
+            <span class="pill">レシピ管理</span>
+          </div>
+        </div>
+        <div class="service-card scroll-reveal">
+          <div class="service-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+          </div>
+          <h3 class="service-title">トレーサビリティシステム</h3>
+          <p class="service-desc">製品シリアル、工程履歴、検査結果、設備データを紐づけ、品質管理や不具合解析に活用できる仕組みを構築します。</p>
+          <div class="service-tags">
+            <span class="pill">シリアル管理</span>
+            <span class="pill">検査データ保存</span>
+            <span class="pill">工程履歴管理</span>
+            <span class="pill">品質レポート</span>
+          </div>
+        </div>
+        <div class="service-card scroll-reveal">
+          <div class="service-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0891B2" stroke-width="1.5"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          </div>
+          <h3 class="service-title">製造業向けソフトウェア開発</h3>
+          <p class="service-desc">装置メーカーや工場ごとの業務に合わせ、専用アプリケーションや業務支援ツールを開発します。</p>
+          <div class="service-tags">
+            <span class="pill">現場向けWebアプリ</span>
+            <span class="pill">AGV制御支援</span>
+            <span class="pill">生産管理補助</span>
+            <span class="pill">PoC・試作開発</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 実績 -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="section-heading">
-        <h2>実績</h2>
-        <span class="en">Achievements</span>
+  <!-- Solution Section -->
+  <section class="section section-alt" id="solution">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="section-label">SOLUTION</span>
+        <h2 class="section-title">パブサーが選ばれる理由</h2>
       </div>
-      <div class="achievement-list">
-        <div class="achievement-item">
-          <h3>自動車関連トレーサビリティシステムの構築</h3>
-          <p>自動車業界のお客様向けに、数十台の設備からリアルタイムでセンシングされたデータを製品シリアルに紐づけ、データベースに保存するトレーサビリティシステムを構築しました。異常が発生した際にはその製品シリアルを基に過去のデータを迅速に追跡し、製品の状態や関連する製品の特定が可能となります。このシステムにより、品質管理の効率化と迅速なトラブルシューティングが可能となりました。</p>
+      <div class="solution-grid">
+        <div class="solution-card scroll-reveal">
+          <div class="solution-number">01</div>
+          <h3 class="solution-title">現場起点の設計</h3>
+          <p class="solution-desc">単なるIT目線ではなく、設備・制御・作業者・保全・品質管理の流れを踏まえて設計します。</p>
         </div>
-        <div class="achievement-item">
-          <h3>SCADAソフトウェアの開発</h3>
-          <p>製造プロセスの最適化と品質管理を強化するため、生産用レシピの保存・転送機能、温度情報などの記録機能、これらのデータをグラフ表示する機能、さらに警報の現在状況や履歴を表示する機能を備えたSCADAソフトウェアを開発しました。このシステムにより、リアルタイムでの生産管理が可能となり、工場の稼働効率と品質監視の精度が向上しました。</p>
+        <div class="solution-card scroll-reveal">
+          <div class="solution-number">02</div>
+          <h3 class="solution-title">PLCから画面まで一気通貫</h3>
+          <p class="solution-desc">PLC、センサー、DB、Web画面、SCADA、帳票まで、データの入口から出口まで考えます。</p>
         </div>
-        <div class="achievement-item">
-          <h3>工場内AGV制御システムの構築</h3>
-          <p>製造業の現場での自動化を促進するため、工場内で使用されるAGVの制御システムを構築しました。AGVとの通信部分の開発から、AGVの運行を一元管理するシステムの構築まで行いました。このシステムにより、工場内の搬送プロセスが効率化され、無駄のない運用が可能になりました。</p>
+        <div class="solution-card scroll-reveal">
+          <div class="solution-number">03</div>
+          <h3 class="solution-title">小さく始めて、現場に合わせて育てる</h3>
+          <p class="solution-desc">大規模導入ありきではなく、PoCや小規模改善から始め、現場の反応を見ながら拡張できます。</p>
         </div>
+      </div>
+
+      <!-- Flow Steps -->
+      <div class="flow-section scroll-reveal">
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="flow-step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <span class="flow-step-label">PLC</span>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7C5 4 4 5 4 7z"/><path d="M12 4v16M4 12h16"/></svg>
+            </div>
+            <span class="flow-step-label">データ収集</span>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <span class="flow-step-label">DB</span>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <span class="flow-step-label">可視化</span>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            </div>
+            <span class="flow-step-label">改善</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mid-cta scroll-reveal">
+        <p class="mid-cta-text">現場のデータ活用について、まずはお気軽にご相談ください。</p>
+        <a href="contact.html" class="btn btn-primary">まずは相談する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Section -->
+  <section class="section section-light" id="case">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="section-label">CASE</span>
+        <h2 class="section-title">開発実績</h2>
+      </div>
+      <div class="case-grid">
+        <div class="case-card scroll-reveal">
+          <div class="case-badge">Traceability</div>
+          <h3 class="case-title">自動車関連トレーサビリティシステム</h3>
+          <p class="case-desc">複数設備から取得したデータを製品シリアルに紐づけ、データベースへ保存。不具合発生時に対象製品の履歴を迅速に追跡できる仕組みを構築。</p>
+          <div class="case-results">
+            <span class="case-result-label">成果</span>
+            <ul class="case-result-list">
+              <li>品質管理の効率化</li>
+              <li>不具合解析のスピード向上</li>
+              <li>製造履歴の一元管理</li>
+            </ul>
+          </div>
+          <div class="case-tags">
+            <span class="pill">PLC連携</span>
+            <span class="pill">DB設計</span>
+            <span class="pill">検索UI</span>
+          </div>
+        </div>
+        <div class="case-card scroll-reveal">
+          <div class="case-badge">SCADA</div>
+          <h3 class="case-title">SCADAソフトウェア開発</h3>
+          <p class="case-desc">生産用レシピの保存・転送、温度情報などの記録、グラフ表示、アラーム履歴表示を備えた監視ソフトウェアを開発。</p>
+          <div class="case-results">
+            <span class="case-result-label">成果</span>
+            <ul class="case-result-list">
+              <li>生産状態のリアルタイム把握</li>
+              <li>品質監視の精度向上</li>
+              <li>操作・監視業務の効率化</li>
+            </ul>
+          </div>
+          <div class="case-tags">
+            <span class="pill">レシピ管理</span>
+            <span class="pill">リアルタイム監視</span>
+            <span class="pill">アラーム</span>
+          </div>
+        </div>
+        <div class="case-card scroll-reveal">
+          <div class="case-badge">AGV</div>
+          <h3 class="case-title">工場内AGV制御システム</h3>
+          <p class="case-desc">AGVとの通信部分から運行管理システムまで構築。搬送プロセスの効率化と運用の見える化を支援。</p>
+          <div class="case-results">
+            <span class="case-result-label">成果</span>
+            <ul class="case-result-list">
+              <li>搬送効率の向上</li>
+              <li>運行管理の一元化</li>
+              <li>現場オペレーションの最適化</li>
+            </ul>
+          </div>
+          <div class="case-tags">
+            <span class="pill">通信制御</span>
+            <span class="pill">運行管理</span>
+            <span class="pill">可視化</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="section-label">PROCESS</span>
+        <h2 class="section-title">ご相談から導入までの流れ</h2>
+      </div>
+      <div class="process-timeline">
+        <div class="process-step scroll-reveal">
+          <div class="process-number">01</div>
+          <div class="process-content">
+            <h3 class="process-title">ヒアリング</h3>
+            <p class="process-desc">現場課題、設備構成、既存システム、実現したいことを整理します。</p>
+          </div>
+        </div>
+        <div class="process-step scroll-reveal">
+          <div class="process-number">02</div>
+          <div class="process-content">
+            <h3 class="process-title">要件整理・提案</h3>
+            <p class="process-desc">必要な機能、構成、進め方、概算スケジュールを整理します。</p>
+          </div>
+        </div>
+        <div class="process-step scroll-reveal">
+          <div class="process-number">03</div>
+          <div class="process-content">
+            <h3 class="process-title">PoC・試作</h3>
+            <p class="process-desc">小さく検証し、現場で使えるかを確認します。</p>
+          </div>
+        </div>
+        <div class="process-step scroll-reveal">
+          <div class="process-number">04</div>
+          <div class="process-content">
+            <h3 class="process-title">開発・テスト</h3>
+            <p class="process-desc">実運用を想定して、画面・通信・DB・異常処理まで作り込みます。</p>
+          </div>
+        </div>
+        <div class="process-step scroll-reveal">
+          <div class="process-number">05</div>
+          <div class="process-content">
+            <h3 class="process-title">導入・改善</h3>
+            <p class="process-desc">現場導入後のフィードバックをもとに改善・拡張します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA Section -->
+  <section class="section section-contact">
+    <div class="container">
+      <div class="contact-inner scroll-reveal">
+        <span class="section-label">CONTACT</span>
+        <h2 class="contact-title">まずは、現場の困りごとを<br>お聞かせください。</h2>
+        <p class="contact-desc">設備データを取りたい、監視画面を作りたい、トレーサビリティを整えたい。<br class="sp-hide">まだ要件が固まっていない段階でも構いません。<br>現場の状況を伺いながら、実現方法を一緒に整理します。</p>
+        <a href="https://forms.office.com/r/dQQ1ZHqTfq" class="btn btn-primary btn-large btn-glow" target="_blank" rel="noopener noreferrer">お問い合わせする</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="site-footer">
-    <a href="index.html" class="footer-logo">
-      <img src="https://pubcir.net/wp-content/uploads/2024/07/pubcir_logo_23.png" alt="PUBCIR">
-    </a>
-    <small>&copy; 2024 PUBCIR.</small>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo-text">PUBCIR</div>
+        <p class="footer-tagline">製造現場のデータを、使えるシステムへ。</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="#top">TOP</a>
+        <a href="#service">SERVICE</a>
+        <a href="#case">CASE</a>
+        <a href="company.html">COMPANY</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <small>&copy; 2024 PUBCIR LLC. All rights reserved.</small>
+    </div>
   </footer>
 
-  <script>
-    document.getElementById('hamburger').addEventListener('click', function () {
-      document.getElementById('globalNav').classList.toggle('open');
-    });
-  </script>
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="ページトップへ">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

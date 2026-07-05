@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>会社概要｜PUBCIR</title>
+  <title>会社概要｜パブサー合同会社</title>
   <meta name="description" content="パブサー合同会社の会社概要。生産設備のソフトウェアの設計、開発、販売。製造業を対象としたコンサルティング業務。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <!-- Header -->
-  <header class="site-header">
+  <header class="site-header" id="header">
     <div class="header-inner">
       <a href="index.html" class="logo">
-        <img src="https://pubcir.net/wp-content/uploads/2024/07/pubcir_logo_23.png" alt="PUBCIR">
+        <span class="logo-text">PUBCIR</span>
+        <span class="logo-sub">LLC</span>
       </a>
       <button class="hamburger" id="hamburger" aria-label="メニュー">
         <span></span><span></span><span></span>
@@ -21,8 +25,10 @@
       <nav class="global-nav" id="globalNav">
         <ul>
           <li><a href="index.html">TOP</a></li>
-          <li><a href="company.html" class="active">会社概要</a></li>
-          <li><a href="contact.html">お問い合わせ</a></li>
+          <li><a href="index.html#service">SERVICE</a></li>
+          <li><a href="index.html#case">CASE</a></li>
+          <li><a href="company.html" class="active">COMPANY</a></li>
+          <li><a href="contact.html" class="nav-cta">CONTACT</a></li>
         </ul>
       </nav>
     </div>
@@ -35,17 +41,21 @@
   </div>
 
   <!-- Content -->
-  <section class="section">
-    <div class="section-inner">
-      <p class="company-intro">
+  <section class="section section-light">
+    <div class="container">
+      <p class="company-intro scroll-reveal">
         私たちは、あらゆるお客様から喜ばれるサービスをご提供できるよう、開発を進めてまいります。<br>
         どんな小さなことでも、まずはご相談ください。
       </p>
 
-      <table class="company-table">
+      <table class="company-table scroll-reveal">
         <tr>
           <th>社名</th>
           <td>パブサー合同会社</td>
+        </tr>
+        <tr>
+          <th>英語表記</th>
+          <td>PUBCIR LLC</td>
         </tr>
         <tr>
           <th>事業内容</th>
@@ -82,16 +92,24 @@
 
   <!-- Footer -->
   <footer class="site-footer">
-    <a href="index.html" class="footer-logo">
-      <img src="https://pubcir.net/wp-content/uploads/2024/07/pubcir_logo_23.png" alt="PUBCIR">
-    </a>
-    <small>&copy; 2024 PUBCIR.</small>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo-text">PUBCIR</div>
+        <p class="footer-tagline">製造現場のデータを、使えるシステムへ。</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">TOP</a>
+        <a href="index.html#service">SERVICE</a>
+        <a href="index.html#case">CASE</a>
+        <a href="company.html">COMPANY</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <small>&copy; 2024 PUBCIR LLC. All rights reserved.</small>
+    </div>
   </footer>
 
-  <script>
-    document.getElementById('hamburger').addEventListener('click', function () {
-      document.getElementById('globalNav').classList.toggle('open');
-    });
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
