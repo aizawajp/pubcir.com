@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>デモ一覧｜パブサー合同会社</title>
+  <meta name="description" content="パブサー合同会社の製造業向けシステムデモ。生産ライン監視、品質検査、設備メンテナンス管理。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="img/pubcir_logo.png" alt="PUBCIR">
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="global-nav" id="globalNav">
+        <ul>
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="index.html#service">SERVICE</a></li>
+          <li><a href="index.html#case">CASE</a></li>
+          <li><a href="demo.html" class="active">DEMO</a></li>
+          <li><a href="company.html">COMPANY</a></li>
+          <li><a href="contact.html" class="nav-cta">CONTACT</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>システムデモ</h1>
+    <span class="en">Live Demo</span>
+  </div>
+
+  <!-- Demo Catalog -->
+  <section class="section section-light">
+    <div class="container">
+      <p class="company-intro scroll-reveal">
+        製造現場の課題を解決するシステムのデモをご覧いただけます。<br>
+        実際の画面を確認し、導入イメージを具体的にご検討ください。
+      </p>
+      <p class="company-intro scroll-reveal" style="font-size:0.82rem;color:#64748B;margin-bottom:48px;">
+        ※ 各デモは実際の導入実績を基に内容を抽象化し、Web上で動作を体験いただけるよう作成したものです。表示データはサンプルです。
+      </p>
+
+      <div class="demo-catalog">
+
+        <!-- Demo 1 -->
+        <a href="demo/production-monitor.html" class="demo-catalog-card scroll-reveal">
+          <div class="demo-card-body">
+            <div class="demo-card-badge">Line Monitor</div>
+            <h3 class="demo-card-title">生産ライン監視ダッシュボード</h3>
+            <div class="demo-card-section">
+              <h4>課題</h4>
+              <p>4つの生産ラインの稼働状況を一元管理したい</p>
+            </div>
+            <div class="demo-card-section">
+              <h4>要望</h4>
+              <ul>
+                <li>リアルタイムで各ラインの稼働/停止/警報状態を把握</li>
+                <li>タクトタイム、生産数、NG数の見える化</li>
+                <li>OEE(総合設備効率)の自動計算と表示</li>
+              </ul>
+            </div>
+            <div class="demo-features">
+              <span class="pill">4ライン同時監視</span>
+              <span class="pill">リアルタイム表示</span>
+              <span class="pill">サイクルタイム</span>
+              <span class="pill">OEE自動計算</span>
+            </div>
+            <div style="margin-top:16px"><span class="demo-link-text">デモを見る →</span></div>
+          </div>
+          <div class="demo-preview-canvas-wrap">
+            <canvas id="catPreview1" width="400" height="260"></canvas>
+          </div>
+        </a>
+
+        <!-- Demo 2 -->
+        <a href="demo/quality-inspection.html" class="demo-catalog-card scroll-reveal">
+          <div class="demo-card-body">
+            <div class="demo-card-badge">Quality</div>
+            <h3 class="demo-card-title">品質検査データ可視化システム</h3>
+            <div class="demo-card-section">
+              <h4>課題</h4>
+              <p>日々の検査結果が紙やExcelで管理され、分析に時間がかかる</p>
+            </div>
+            <div class="demo-card-section">
+              <h4>要望</h4>
+              <ul>
+                <li>検査結果の一元管理とトレンド分析</li>
+                <li>NG原因の分析（パレート図）</li>
+                <li>製品別・ロット別の品質データ把握</li>
+              </ul>
+            </div>
+            <div class="demo-features">
+              <span class="pill">自動集計</span>
+              <span class="pill">NG率推移グラフ</span>
+              <span class="pill">パレート図</span>
+              <span class="pill">製品別品質</span>
+            </div>
+            <div style="margin-top:16px"><span class="demo-link-text">デモを見る →</span></div>
+          </div>
+          <div class="demo-preview-canvas-wrap" style="background:#f3f4f6">
+            <canvas id="catPreview2" width="400" height="260"></canvas>
+          </div>
+        </a>
+
+        <!-- Demo 3 -->
+        <a href="demo/maintenance.html" class="demo-catalog-card scroll-reveal">
+          <div class="demo-card-body">
+            <div class="demo-card-badge">Maintenance</div>
+            <h3 class="demo-card-title">設備メンテナンス管理システム</h3>
+            <div class="demo-card-section">
+              <h4>課題</h4>
+              <p>10台の主要設備の点検時期や故障履歴を紙で管理</p>
+            </div>
+            <div class="demo-card-section">
+              <h4>要望</h4>
+              <ul>
+                <li>次回点検日のアラート機能</li>
+                <li>故障履歴・メンテナンス履歴の一元管理</li>
+                <li>MTBF、MTTRの把握</li>
+              </ul>
+            </div>
+            <div class="demo-features">
+              <span class="pill">設備一覧</span>
+              <span class="pill">点検日アラート</span>
+              <span class="pill">故障履歴</span>
+              <span class="pill">MTBF/MTTR</span>
+            </div>
+            <div style="margin-top:16px"><span class="demo-link-text">デモを見る →</span></div>
+          </div>
+          <div class="demo-preview-canvas-wrap" style="background:#f1f5f9">
+            <canvas id="catPreview3" width="400" height="260"></canvas>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="index.html">ホーム</a> &gt; デモ一覧
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="logo"><img src="img/pubcir_logo.png" alt="PUBCIR" style="height:32px"></a>
+        <p class="footer-tagline">製造現場のデータを、使えるシステムへ。</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">TOP</a>
+        <a href="index.html#service">SERVICE</a>
+        <a href="index.html#case">CASE</a>
+        <a href="demo.html">DEMO</a>
+        <a href="company.html">COMPANY</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <small>&copy; 2024 PUBCIR LLC. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+  // Catalog preview canvases
+  function roundR(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+
+  // Preview 1: Production Monitor
+  (function(){
+    var c=document.getElementById('catPreview1');if(!c)return;
+    var ctx=c.getContext('2d'),W=c.width,H=c.height;
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      ctx.fillStyle='#0a1628';ctx.fillRect(0,0,W,H);
+      ctx.fillStyle='#94A3B8';ctx.font='bold 11px sans-serif';ctx.fillText('🏭 生産ライン監視ダッシュボード',12,18);
+      ctx.fillStyle='#22c55e';ctx.font='10px sans-serif';ctx.fillText('● 接続中',W-80,18);
+      var cards=[{n:'Assembly Line #1',ct:(9.5+Math.random()*1.5).toFixed(1),p:Math.floor(510+Math.random()*30),c:'#22c55e'},{n:'Assembly Line #2',ct:(9+Math.random()*2).toFixed(1),p:Math.floor(590+Math.random()*30),c:'#22c55e'},{n:'Inspection Line #1',ct:(17+Math.random()*3).toFixed(1),p:Math.floor(300+Math.random()*20),c:'#ef4444'}];
+      cards.forEach(function(d,i){
+        var x=8+i*132,y=30,w=124,h=90;
+        ctx.fillStyle='rgba(30,58,138,0.5)';roundR(ctx,x,y,w,h,6);ctx.fill();
+        ctx.strokeStyle=d.c+'66';ctx.lineWidth=1;roundR(ctx,x,y,w,h,6);ctx.stroke();
+        ctx.fillStyle='#E5E7EB';ctx.font='bold 9px sans-serif';ctx.fillText(d.n,x+6,y+14);
+        ctx.fillStyle=d.c;ctx.font='7px sans-serif';ctx.fillText(d.c==='#22c55e'?'稼働中':'警戒',x+w-28,y+14);
+        ctx.fillStyle='#94A3B8';ctx.font='7px sans-serif';ctx.fillText('CT',x+6,y+30);
+        ctx.fillStyle='#fff';ctx.font='bold 16px sans-serif';ctx.fillText(d.ct,x+6,y+50);
+        ctx.fillStyle='#94A3B8';ctx.font='7px sans-serif';ctx.fillText('秒',x+42,y+50);
+        ctx.fillText('生産数',x+68,y+30);ctx.fillStyle='#fff';ctx.font='bold 14px sans-serif';ctx.fillText(d.p,x+68,y+50);
+        ctx.fillStyle='#94A3B8';ctx.font='7px sans-serif';ctx.fillText('/800',x+100,y+50);
+        ctx.fillStyle='#1e3a5f';roundR(ctx,x+6,y+60,w-12,5,2);ctx.fill();
+        ctx.fillStyle=d.c;roundR(ctx,x+6,y+60,(w-12)*(d.p/800),5,2);ctx.fill();
+        // Mini chart
+        ctx.strokeStyle='#22d3ee';ctx.lineWidth=1;ctx.beginPath();
+        for(var j=0;j<20;j++){var cx2=x+6+j*(w-12)/19,cy2=y+78+Math.sin(j*0.6+Date.now()/800+i)*4+Math.random()*2;j===0?ctx.moveTo(cx2,cy2):ctx.lineTo(cx2,cy2);}
+        ctx.stroke();
+      });
+      // Bottom area hint
+      ctx.fillStyle='rgba(30,58,138,0.3)';roundR(ctx,8,130,124,90,6);ctx.fill();
+      ctx.fillStyle='#94A3B8';ctx.font='bold 9px sans-serif';ctx.fillText('Packing Line #1',14,146);
+      ctx.fillStyle='#22c55e';ctx.font='7px sans-serif';ctx.fillText('稼働中',100,146);
+      // OEE
+      ctx.fillStyle='#64748B';ctx.font='8px sans-serif';ctx.fillText('OEE: '+(82+Math.random()*6).toFixed(1)+'%',14,166);
+      // Chart area
+      ctx.strokeStyle='#22d3ee55';ctx.lineWidth=1;ctx.beginPath();
+      for(var j=0;j<30;j++){var cx3=8+j*(W-16)/29,cy3=200+Math.sin(j*0.4+Date.now()/1200)*16+Math.random()*6;j===0?ctx.moveTo(cx3,cy3):ctx.lineTo(cx3,cy3);}ctx.stroke();
+      ctx.fillStyle='#475569';ctx.font='8px sans-serif';ctx.fillText('サイクルタイム推移(全ライン)',10,190);
+    }
+    draw();setInterval(draw,2000);
+  })();
+
+  // Preview 2: Quality Inspection
+  (function(){
+    var c=document.getElementById('catPreview2');if(!c)return;
+    var ctx=c.getContext('2d'),W=c.width,H=c.height;
+    function draw(){
+      ctx.clearRect(0,0,W,H);ctx.fillStyle='#f3f4f6';ctx.fillRect(0,0,W,H);
+      ctx.fillStyle='#dc2626';ctx.fillRect(0,0,W,26);
+      ctx.fillStyle='#fff';ctx.font='bold 10px sans-serif';ctx.fillText('☑ 品質検査データ可視化システム',8,17);
+      var kpis=[{l:'検査総数',v:''+(160+Math.floor(Math.random()*8)),c:'#0F172A'},{l:'合格品数',v:''+(150+Math.floor(Math.random()*8)),c:'#22c55e'},{l:'不良品数',v:''+(7+Math.floor(Math.random()*5)),c:'#f97316'},{l:'NG率',v:(4+Math.random()*3).toFixed(1)+'%',c:'#ef4444'}];
+      kpis.forEach(function(k,i){var x=6+i*99,y=34,w=93,h=44;ctx.fillStyle='#fff';roundR(ctx,x,y,w,h,4);ctx.fill();ctx.fillStyle=k.c;ctx.font='bold 16px sans-serif';ctx.textAlign='center';ctx.fillText(k.v,x+w/2,y+26);ctx.fillStyle='#94A3B8';ctx.font='7px sans-serif';ctx.fillText(k.l,x+w/2,y+40);ctx.textAlign='left';});
+      // Bar chart
+      ctx.fillStyle='#fff';roundR(ctx,6,86,190,160,4);ctx.fill();
+      ctx.fillStyle='#64748B';ctx.font='8px sans-serif';ctx.fillText('📊 NG原因パレート図',12,100);
+      var bars=[40,38,36,35,32,28,25];bars.forEach(function(v,i){var bx=14+i*25,by=230-v*2.8,bw=18;ctx.fillStyle='#f97316';roundR(ctx,bx,by,bw,v*2.8,2);ctx.fill();});
+      // Donut
+      ctx.fillStyle='#fff';roundR(ctx,204,86,190,160,4);ctx.fill();
+      ctx.fillStyle='#64748B';ctx.font='8px sans-serif';ctx.fillText('🍩 製品別NG率',210,100);
+      var sl=[{p:0.30,c:'#ef4444'},{p:0.25,c:'#ec4899'},{p:0.20,c:'#3b82f6'},{p:0.15,c:'#8b5cf6'},{p:0.10,c:'#1e3a8a'}];
+      var sa=-Math.PI/2,dcx=300,dcy=180,dr=42;
+      sl.forEach(function(s){var ea=sa+s.p*Math.PI*2;ctx.beginPath();ctx.moveTo(dcx,dcy);ctx.arc(dcx,dcy,dr,sa,ea);ctx.closePath();ctx.fillStyle=s.c;ctx.fill();sa=ea;});
+      ctx.beginPath();ctx.arc(dcx,dcy,22,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
+    }
+    draw();setInterval(draw,3000);
+  })();
+
+  // Preview 3: Maintenance
+  (function(){
+    var c=document.getElementById('catPreview3');if(!c)return;
+    var ctx=c.getContext('2d'),W=c.width,H=c.height;
+    function draw(){
+      ctx.clearRect(0,0,W,H);ctx.fillStyle='#f1f5f9';ctx.fillRect(0,0,W,H);
+      ctx.fillStyle='#1e293b';ctx.fillRect(0,0,W,26);
+      ctx.fillStyle='#fff';ctx.font='bold 10px sans-serif';ctx.fillText('🔧 設備メンテナンス管理システム',8,17);
+      var stats=[{l:'MTBF(h)',v:(180+Math.random()*10).toFixed(1)},{l:'MTTR(h)',v:(5+Math.random()*2).toFixed(1)},{l:'故障(90日)',v:''+(10+Math.floor(Math.random()*3))},{l:'稼働率',v:(96+Math.random()*2).toFixed(1)+'%'}];
+      stats.forEach(function(s,i){var x=6+i*99,y=34,w=93,h=44;ctx.fillStyle='#334155';roundR(ctx,x,y,w,h,4);ctx.fill();ctx.fillStyle='#fff';ctx.font='bold 14px sans-serif';ctx.textAlign='center';ctx.fillText(s.v,x+w/2,y+26);ctx.fillStyle='#94A3B8';ctx.font='7px sans-serif';ctx.fillText(s.l,x+w/2,y+40);ctx.textAlign='left';});
+      var equips=[{n:'CNC加工機 #1',s:'正常',c:'#22c55e'},{n:'プレス機 #1',s:'正常',c:'#22c55e'},{n:'溶接ロボット #1',s:'正常',c:'#22c55e'},{n:'塗装ブース #1',s:'期限超過',c:'#f97316'}];
+      equips.forEach(function(eq,i){var x=6+i*99,y=88,w=93,h=62;ctx.fillStyle='#fff';roundR(ctx,x,y,w,h,4);ctx.fill();ctx.fillStyle=eq.c;ctx.fillRect(x,y+2,3,h-4);ctx.fillStyle='#0F172A';ctx.font='bold 8px sans-serif';ctx.fillText(eq.n,x+8,y+16);ctx.fillStyle='#94A3B8';ctx.font='7px sans-serif';ctx.fillText('次回点検:2026/3',x+8,y+30);ctx.fillStyle=eq.c+'22';roundR(ctx,x+4,y+h-16,w-8,12,3);ctx.fill();ctx.fillStyle=eq.c;ctx.font='bold 7px sans-serif';ctx.textAlign='center';ctx.fillText(eq.s,x+w/2,y+h-7);ctx.textAlign='left';});
+      // Second row
+      var eq2=[{n:'溶接ロボット #2',c:'#22c55e'},{n:'組立ライン #1',c:'#22c55e'},{n:'検査装置 #1',c:'#22c55e'},{n:'CNC加工機 #2',c:'#22c55e'}];
+      eq2.forEach(function(eq,i){var x=6+i*99,y=158,w=93,h=62;ctx.fillStyle='#fff';roundR(ctx,x,y,w,h,4);ctx.fill();ctx.fillStyle=eq.c;ctx.fillRect(x,y+2,3,h-4);ctx.fillStyle='#0F172A';ctx.font='bold 8px sans-serif';ctx.fillText(eq.n,x+8,y+16);ctx.fillStyle='#94A3B8';ctx.font='7px sans-serif';ctx.fillText('次回点検:2026/4',x+8,y+30);ctx.fillStyle=eq.c+'22';roundR(ctx,x+4,y+h-16,w-8,12,3);ctx.fill();ctx.fillStyle=eq.c;ctx.font='bold 7px sans-serif';ctx.textAlign='center';ctx.fillText('正常',x+w/2,y+h-7);ctx.textAlign='left';});
+      ctx.fillStyle='#64748B';ctx.font='8px sans-serif';ctx.fillText('📋 メンテナンス履歴 — 直近3件',10,240);
+      ctx.fillStyle='#94A3B8';ctx.font='7px sans-serif';ctx.fillText('CNC加工機 #1 | 定期点検 | 2026/02/20 | 完了',10,252);
+    }
+    draw();setInterval(draw,3000);
+  })();
+  </script>
+</body>
+</html>

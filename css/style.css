@@ -18,14 +18,14 @@
   --text-secondary: #334155;
   --text-sub: #64748B;
   --text-muted: #94A3B8;
-  --accent: #0891B2;
-  --accent-light: #06B6D4;
-  --accent-dark: #0E7490;
-  --accent-teal: #14B8A6;
-  --accent-bg: rgba(8, 145, 178, 0.04);
-  --accent-bg-hover: rgba(8, 145, 178, 0.08);
+  --accent: #007CBA;
+  --accent-light: #0098E5;
+  --accent-dark: #006399;
+  --accent-teal: #0098E5;
+  --accent-bg: rgba(0, 124, 186, 0.04);
+  --accent-bg-hover: rgba(0, 124, 186, 0.08);
   --border: #E2E8F0;
-  --border-accent: rgba(8, 145, 178, 0.2);
+  --border-accent: rgba(0, 124, 186, 0.2);
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
@@ -100,8 +100,13 @@ ul { list-style: none; }
 
 .logo {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 6px;
+}
+
+.logo img {
+  height: 36px;
+  width: auto;
 }
 
 .logo-text {
@@ -343,12 +348,12 @@ ul { list-style: none; }
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-teal));
   color: #fff;
-  box-shadow: 0 4px 16px rgba(8, 145, 178, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 124, 186, 0.25);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(8, 145, 178, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 124, 186, 0.35);
 }
 
 .btn-glow {
@@ -356,8 +361,8 @@ ul { list-style: none; }
 }
 
 @keyframes btnGlow {
-  0%, 100% { box-shadow: 0 4px 16px rgba(8, 145, 178, 0.25); }
-  50% { box-shadow: 0 4px 24px rgba(8, 145, 178, 0.4); }
+  0%, 100% { box-shadow: 0 4px 16px rgba(0, 124, 186, 0.25); }
+  50% { box-shadow: 0 4px 24px rgba(0, 124, 186, 0.4); }
 }
 
 .btn-secondary {
@@ -701,7 +706,7 @@ ul { list-style: none; }
   padding: 16px;
   background: var(--accent-bg);
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(8, 145, 178, 0.08);
+  border: 1px solid rgba(0, 124, 186, 0.08);
 }
 
 .case-result-label {
@@ -859,6 +864,217 @@ ul { list-style: none; }
 
 .company-table td {
   color: var(--text-primary);
+}
+
+/* --- Demo Catalog --- */
+.demo-catalog {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.demo-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+  color: inherit;
+}
+
+.demo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-accent);
+}
+
+.demo-card-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  background: var(--accent);
+  align-self: flex-start;
+  margin: 28px 0 0 28px;
+  border-radius: 100px;
+  text-transform: uppercase;
+}
+
+.demo-card-body {
+  padding: 20px 28px 16px;
+  flex-grow: 1;
+}
+
+.demo-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.demo-card-section {
+  margin-bottom: 16px;
+}
+
+.demo-card-section h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.demo-card-section p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.demo-card-section ul {
+  padding-left: 0;
+}
+
+.demo-card-section li {
+  font-size: 0.88rem;
+  color: var(--text-sub);
+  padding: 3px 0 3px 18px;
+  position: relative;
+}
+
+.demo-card-section li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.demo-system-name {
+  font-weight: 700;
+  color: var(--text-primary) !important;
+}
+
+.demo-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.demo-card-action {
+  padding: 16px 28px 28px;
+}
+
+.demo-card-action .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* --- Demo Preview (index page) --- */
+.demo-preview-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.demo-preview-card {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+  color: inherit;
+}
+
+.demo-preview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-accent);
+}
+
+.demo-preview-canvas-wrap {
+  background: #0a1628;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  min-height: 220px;
+}
+
+.demo-preview-canvas-wrap canvas {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.demo-preview-info {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.demo-preview-info h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.demo-preview-info p {
+  font-size: 0.88rem;
+  color: var(--text-sub);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.demo-link-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: var(--transition);
+}
+
+.demo-preview-card:hover .demo-link-text {
+  color: var(--accent-dark);
+}
+
+/* Demo catalog card layout with preview */
+.demo-catalog-card {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+  color: inherit;
+}
+
+.demo-catalog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-accent);
+}
+
+.demo-catalog-card .demo-card-body {
+  padding: 28px 32px;
+}
+
+.demo-catalog-card .demo-preview-canvas-wrap {
+  border-left: 1px solid var(--border);
 }
 
 /* --- Contact Page --- */
@@ -1098,6 +1314,19 @@ ul { list-style: none; }
 
   .case-grid {
     grid-template-columns: 1fr;
+  }
+
+  .demo-preview-card {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-catalog-card {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-catalog-card .demo-preview-canvas-wrap {
+    border-left: none;
+    border-top: 1px solid var(--border);
   }
 }
 

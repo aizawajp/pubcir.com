@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>設備メンテナンス管理システム - PUBCIR Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            height: 56px;
+        }
+
+        .header-title {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .header-logo {
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1e293b;
+        }
+
+        /* KPI Cards */
+        .kpi-section {
+            margin-bottom: 40px;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .kpi-card {
+            background: #334155;
+            border-radius: 10px;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        .kpi-label {
+            color: #94a3b8;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .kpi-value {
+            color: #fff;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Equipment Cards */
+        .equipment-section {
+            margin-bottom: 40px;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .equipment-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+            overflow: hidden;
+            border-left: 4px solid #22c55e;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .equipment-card.overdue {
+            border-left-color: #f97316;
+        }
+
+        .equipment-card-body {
+            padding: 20px 16px 16px;
+            flex: 1;
+        }
+
+        .equipment-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 2px;
+        }
+
+        .equipment-code {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-bottom: 14px;
+        }
+
+        .equipment-info {
+            width: 100%;
+            font-size: 13px;
+        }
+
+        .equipment-info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .equipment-info-row:last-child {
+            border-bottom: none;
+        }
+
+        .equipment-info-label {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .equipment-info-value {
+            color: #1e293b;
+            font-weight: 500;
+        }
+
+        .equipment-status {
+            padding: 8px 16px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .equipment-status.normal {
+            background: #22c55e;
+        }
+
+        .equipment-status.overdue {
+            background: #f97316;
+        }
+
+        /* Back link */
+        .back-link-wrapper {
+            text-align: center;
+            margin-top: 16px;
+            padding-bottom: 32px;
+        }
+
+        .back-link {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #1e293b;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .equipment-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header {
+                padding: 0 16px;
+            }
+            .header-title {
+                font-size: 15px;
+            }
+            .header-logo {
+                font-size: 17px;
+            }
+            .container {
+                padding: 24px 16px;
+            }
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+            .kpi-value {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <span class="header-title">🔧 設備メンテナンス管理システム</span>
+    <span class="header-logo">PUBCIR</span>
+</header>
+
+<div class="container">
+
+    <!-- Reliability Statistics -->
+    <section class="kpi-section">
+        <h2 class="section-title">📊 信頼性統計（MTBF/MTTR）</h2>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-label">平均MTBF（時間）</div>
+                <div class="kpi-value">184.4</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">平均MTTR（時間）</div>
+                <div class="kpi-value">5.5</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">故障件数（90日）</div>
+                <div class="kpi-value">11</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">稼働率</div>
+                <div class="kpi-value">97.1%</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment List -->
+    <section class="equipment-section">
+        <h2 class="section-title">⚙ 設備一覧</h2>
+        <div class="equipment-grid">
+
+            <div class="equipment-card">
+                <div class="equipment-card-body">
+                    <div class="equipment-name">CNC加工機 #1</div>
+                    <div class="equipment-code">EQ001</div>
+                    <div class="equipment-info">
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">設置場所</span>
+                            <span class="equipment-info-value">工場A-1F</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">導入日</span>
+                            <span class="equipment-info-value">2020/4/15</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">次回点検日</span>
+                            <span class="equipment-info-value">2026/2/20</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="equipment-status normal">正常</div>
+            </div>
+
+            <div class="equipment-card">
+                <div class="equipment-card-body">
+                    <div class="equipment-name">CNC加工機 #2</div>
+                    <div class="equipment-code">EQ002</div>
+                    <div class="equipment-info">
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">設置場所</span>
+                            <span class="equipment-info-value">工場A-1F</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">導入日</span>
+                            <span class="equipment-info-value">2020/6/20</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">次回点検日</span>
+                            <span class="equipment-info-value">2026/3/10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="equipment-status normal">正常</div>
+            </div>
+
+            <div class="equipment-card">
+                <div class="equipment-card-body">
+                    <div class="equipment-name">プレス機 #1</div>
+                    <div class="equipment-code">EQ003</div>
+                    <div class="equipment-info">
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">設置場所</span>
+                            <span class="equipment-info-value">工場A-2F</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">導入日</span>
+                            <span class="equipment-info-value">2019/8/10</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">次回点検日</span>
+                            <span class="equipment-info-value">2026/3/25</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="equipment-status normal">正常</div>
+            </div>
+
+            <div class="equipment-card">
+                <div class="equipment-card-body">
+                    <div class="equipment-name">溶接ロボット #1</div>
+                    <div class="equipment-code">EQ004</div>
+                    <div class="equipment-info">
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">設置場所</span>
+                            <span class="equipment-info-value">工場B-1F</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">導入日</span>
+                            <span class="equipment-info-value">2021/3/5</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">次回点検日</span>
+                            <span class="equipment-info-value">2026/4/5</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="equipment-status normal">正常</div>
+            </div>
+
+            <div class="equipment-card">
+                <div class="equipment-card-body">
+                    <div class="equipment-name">溶接ロボット #2</div>
+                    <div class="equipment-code">EQ005</div>
+                    <div class="equipment-info">
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">設置場所</span>
+                            <span class="equipment-info-value">工場B-1F</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">導入日</span>
+                            <span class="equipment-info-value">2021/3/5</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">次回点検日</span>
+                            <span class="equipment-info-value">2026/4/8</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="equipment-status normal">正常</div>
+            </div>
+
+            <div class="equipment-card">
+                <div class="equipment-card-body">
+                    <div class="equipment-name">組立ライン #1</div>
+                    <div class="equipment-code">EQ006</div>
+                    <div class="equipment-info">
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">設置場所</span>
+                            <span class="equipment-info-value">工場B-2F</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">導入日</span>
+                            <span class="equipment-info-value">2018/11/20</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">次回点検日</span>
+                            <span class="equipment-info-value">2026/2/15</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="equipment-status normal">正常</div>
+            </div>
+
+            <div class="equipment-card">
+                <div class="equipment-card-body">
+                    <div class="equipment-name">検査装置 #1</div>
+                    <div class="equipment-code">EQ007</div>
+                    <div class="equipment-info">
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">設置場所</span>
+                            <span class="equipment-info-value">品質管理室</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">導入日</span>
+                            <span class="equipment-info-value">2022/1/10</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">次回点検日</span>
+                            <span class="equipment-info-value">2026/4/15</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="equipment-status normal">正常</div>
+            </div>
+
+            <div class="equipment-card overdue">
+                <div class="equipment-card-body">
+                    <div class="equipment-name">塗装ブース #1</div>
+                    <div class="equipment-code">EQ008</div>
+                    <div class="equipment-info">
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">設置場所</span>
+                            <span class="equipment-info-value">工場C-1F</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">導入日</span>
+                            <span class="equipment-info-value">2019/5/25</span>
+                        </div>
+                        <div class="equipment-info-row">
+                            <span class="equipment-info-label">次回点検日</span>
+                            <span class="equipment-info-value">2026/1/30</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="equipment-status overdue">期限超過</div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="back-link-wrapper">
+        <a href="../demo.html" class="back-link">← デモ一覧に戻る</a>
+        <p style="text-align:center;font-size:0.72rem;color:#9ca3af;margin-top:12px;">※ 本デモは実際の導入実績を基に内容を抽象化し、Web上で動作を体験いただけるよう作成したものです。表示データはサンプルです。</p>
+    </div>
+
+</div>
+
+<script>
+(function () {
+    var kpiValues = document.querySelectorAll('.kpi-value');
+    var mtbfEl = kpiValues[0];
+    var mttrEl = kpiValues[1];
+    var faultEl = kpiValues[2];
+    var uptimeEl = kpiValues[3];
+
+    setInterval(function () {
+        var mtbf = 184.4 + (Math.random() * 6.0 - 3.0);
+        mtbfEl.textContent = mtbf.toFixed(1);
+
+        var mttr = 5.5 + (Math.random() * 1.0 - 0.5);
+        mttrEl.textContent = mttr.toFixed(1);
+
+        var fault = 11 + Math.floor(Math.random() * 3 - 1);
+        faultEl.textContent = fault;
+
+        var uptime = 97.1 + (Math.random() * 0.6 - 0.3);
+        uptimeEl.textContent = uptime.toFixed(1) + '%';
+    }, 3000);
+
+    var cards = document.querySelectorAll('.equipment-card');
+
+    setInterval(function () {
+        var idx = Math.floor(Math.random() * (cards.length - 1));
+        var card = cards[idx];
+        var statusEl = card.querySelector('.equipment-status');
+
+        if (statusEl.textContent === '注意') return;
+
+        var origText = statusEl.textContent;
+        var origClass = statusEl.className;
+        var origBorder = card.style.borderLeftColor;
+
+        statusEl.textContent = '注意';
+        statusEl.className = 'equipment-status';
+        statusEl.style.background = '#eab308';
+        card.style.borderLeftColor = '#eab308';
+
+        setTimeout(function () {
+            statusEl.textContent = origText;
+            statusEl.className = origClass;
+            statusEl.style.background = '';
+            card.style.borderLeftColor = origBorder || '';
+        }, 3000);
+    }, 5000);
+})();
+</script>
+
+</body>
+</html>

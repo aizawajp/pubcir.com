@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>品質検査データ可視化システム | PUBCIR Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  background: #f3f4f6;
+  color: #1f2937;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+.header {
+  background: #dc2626;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.header-logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 24px 48px;
+}
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.kpi-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  text-align: center;
+}
+.kpi-label {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.kpi-value {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.kpi-value.black { color: #111827; }
+.kpi-value.green { color: #22c55e; }
+.kpi-value.orange { color: #f97316; }
+.kpi-value.red { color: #ef4444; }
+.charts-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.chart-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+}
+.chart-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 16px;
+}
+.chart-canvas-wrap {
+  width: 100%;
+  position: relative;
+}
+.chart-canvas-wrap canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.table-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.table-header {
+  font-size: 15px;
+  font-weight: 600;
+  color: #374151;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.table-wrap {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+thead th {
+  background: #f9fafb;
+  text-align: left;
+  padding: 10px 16px;
+  font-weight: 600;
+  color: #6b7280;
+  white-space: nowrap;
+  border-bottom: 1px solid #e5e7eb;
+}
+tbody td {
+  padding: 10px 16px;
+  border-bottom: 1px solid #f3f4f6;
+  white-space: nowrap;
+}
+tbody tr:hover { background: #f9fafb; }
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-ok { background: #dcfce7; color: #16a34a; }
+.badge-ng { background: #fee2e2; color: #dc2626; }
+.back-link {
+  text-align: center;
+  padding: 24px 0 0;
+}
+.back-link a {
+  color: #dc2626;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+.back-link a:hover { opacity: 0.7; }
+@media (max-width: 900px) {
+  .kpi-row { grid-template-columns: repeat(2, 1fr); }
+  .charts-row { grid-template-columns: 1fr; }
+  .header { padding: 0 16px; }
+  .container { padding: 16px 12px 40px; }
+}
+@media (max-width: 500px) {
+  .kpi-row { grid-template-columns: 1fr; }
+  .header-title { font-size: 15px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="header-title">☑ 品質検査データ可視化システム</span>
+  <span class="header-logo">PUBCIR</span>
+</div>
+
+<div class="container">
+  <!-- KPI Row -->
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <div class="kpi-label">検査総数（今日）</div>
+      <div class="kpi-value black">164</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">合格品数</div>
+      <div class="kpi-value green">155</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">不良品数</div>
+      <div class="kpi-value orange">9</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">NG率</div>
+      <div class="kpi-value red">5.49%</div>
+    </div>
+  </div>
+
+  <!-- Charts Row -->
+  <div class="charts-row">
+    <div class="chart-card">
+      <div class="chart-title">📈 日次NG率推移</div>
+      <div class="chart-canvas-wrap"><canvas id="chartLine" width="400" height="260"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">📊 NG原因パレート図</div>
+      <div class="chart-canvas-wrap"><canvas id="chartBar" width="400" height="260"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">🍩 製品別NG率</div>
+      <div class="chart-canvas-wrap"><canvas id="chartDonut" width="400" height="260"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="table-card">
+    <div class="table-header">☰ 最近の検査結果</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>検査日時</th>
+            <th>製品コード</th>
+            <th>製品名</th>
+            <th>ロット番号</th>
+            <th>結果</th>
+            <th>NG理由</th>
+            <th>検査員</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026-07-07 14:32</td>
+            <td>P001</td>
+            <td>モーターユニットA</td>
+            <td>LOT20260707-0042</td>
+            <td><span class="badge badge-ok">OK</span></td>
+            <td></td>
+            <td>INS001</td>
+          </tr>
+          <tr>
+            <td>2026-07-07 14:18</td>
+            <td>P003</td>
+            <td>コントローラD</td>
+            <td>LOT20260707-0041</td>
+            <td><span class="badge badge-ng">NG</span></td>
+            <td>電気特性NG</td>
+            <td>INS002</td>
+          </tr>
+          <tr>
+            <td>2026-07-07 13:55</td>
+            <td>P002</td>
+            <td>基板アセンブリB</td>
+            <td>LOT20260707-0040</td>
+            <td><span class="badge badge-ok">OK</span></td>
+            <td></td>
+            <td>INS001</td>
+          </tr>
+          <tr>
+            <td>2026-07-07 13:40</td>
+            <td>P005</td>
+            <td>ケーブルハーネスE</td>
+            <td>LOT20260707-0039</td>
+            <td><span class="badge badge-ng">NG</span></td>
+            <td>外観キズ</td>
+            <td>INS001</td>
+          </tr>
+          <tr>
+            <td>2026-07-07 13:22</td>
+            <td>P001</td>
+            <td>モーターユニットA</td>
+            <td>LOT20260707-0038</td>
+            <td><span class="badge badge-ng">NG</span></td>
+            <td>異品発生</td>
+            <td>INS002</td>
+          </tr>
+          <tr>
+            <td>2026-07-07 12:58</td>
+            <td>P004</td>
+            <td>センサーモジュールC</td>
+            <td>LOT20260707-0037</td>
+            <td><span class="badge badge-ok">OK</span></td>
+            <td></td>
+            <td>INS002</td>
+          </tr>
+          <tr>
+            <td>2026-07-07 12:35</td>
+            <td>P002</td>
+            <td>基板アセンブリB</td>
+            <td>LOT20260707-0036</td>
+            <td><span class="badge badge-ok">OK</span></td>
+            <td></td>
+            <td>INS001</td>
+          </tr>
+          <tr>
+            <td>2026-07-07 12:10</td>
+            <td>P003</td>
+            <td>コントローラD</td>
+            <td>LOT20260707-0035</td>
+            <td><span class="badge badge-ng">NG</span></td>
+            <td>組付不良</td>
+            <td>INS002</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="back-link">
+    <a href="../demo.html">← デモ一覧に戻る</a>
+    <p style="text-align:center;font-size:0.72rem;color:#9ca3af;margin-top:12px;">※ 本デモは実際の導入実績を基に内容を抽象化し、Web上で動作を体験いただけるよう作成したものです。表示データはサンプルです。</p>
+  </div>
+</div>
+
+<script>
+(function() {
+  // --- Utility ---
+  function getCanvasCtx(id) {
+    var c = document.getElementById(id);
+    var dpr = window.devicePixelRatio || 1;
+    c.width = c.getAttribute('width') * dpr;
+    c.height = c.getAttribute('height') * dpr;
+    var ctx = c.getContext('2d');
+    ctx.scale(dpr, dpr);
+    c._w = +c.getAttribute('width') / dpr;
+    c._h = +c.getAttribute('height') / dpr;
+    return ctx;
+  }
+
+  // --- KPI references ---
+  var kpiEls = document.querySelectorAll('.kpi-value');
+  var kpiTotal = kpiEls[0];
+  var kpiPass  = kpiEls[1];
+  var kpiNg    = kpiEls[2];
+  var kpiRate  = kpiEls[3];
+
+  // --- Live state ---
+  var totalCount = 164;
+  var passCount  = 155;
+  var ngCount    = 9;
+  var lotSeq     = 42;
+
+  // --- Line chart data ---
+  var lineData = [11.2, 9.8, 10.5, 8.3, 7.6, 9.1, 8.0, 6.5, 7.8, 6.2, 5.9, 7.1, 5.5, 6.0, 4.8, 5.2, 4.5, 3.9, 4.2, 3.6];
+  var lineLabelStart = 18;
+
+  // --- Bar chart data ---
+  var barCats = ['異品発生', '電気特性NG', '外観キズ', '部品欠品', '組付不良', '動作不良', '寸法不良'];
+  var barVals = [42, 38, 35, 33, 30, 28, 25];
+
+  // --- Donut chart data ---
+  var donutItems = [
+    { name: 'モーターユニットA', val: 32, color: '#ef4444' },
+    { name: 'コントローラD', val: 25, color: '#ec4899' },
+    { name: '基板アセンブリB', val: 20, color: '#3b82f6' },
+    { name: 'センサーモジュールC', val: 14, color: '#8b5cf6' },
+    { name: 'ケーブルハーネスE', val: 9, color: '#1e3a5f' }
+  ];
+
+  // --- Products for table rows ---
+  var products = [
+    { code: 'P001', name: 'モーターユニットA' },
+    { code: 'P002', name: '基板アセンブリB' },
+    { code: 'P003', name: 'コントローラD' },
+    { code: 'P004', name: 'センサーモジュールC' },
+    { code: 'P005', name: 'ケーブルハーネスE' }
+  ];
+  var ngReasons = ['異品発生', '電気特性NG', '外観キズ', '部品欠品', '組付不良', '動作不良', '寸法不良'];
+  var inspectors = ['INS001', 'INS002'];
+
+  // ========== Line Chart ==========
+  function drawLineChart(data) {
+    var ctx = getCanvasCtx('chartLine');
+    var c = ctx.canvas;
+    var W = c._w, H = c._h;
+    var pad = { t: 18, r: 20, b: 38, l: 44 };
+    var maxV = 14, minV = 0;
+    var cw = W - pad.l - pad.r, ch = H - pad.t - pad.b;
+
+    var labels = [];
+    for (var i = 0; i < data.length; i++) labels.push('6/' + (lineLabelStart + i));
+
+    function xPos(i) { return pad.l + (i / (data.length - 1)) * cw; }
+    function yPos(v) { return pad.t + (1 - (v - minV) / (maxV - minV)) * ch; }
+
+    // Grid
+    ctx.strokeStyle = '#e5e7eb';
+    ctx.lineWidth = 1;
+    for (var g = 0; g <= 7; g++) {
+      var gy = yPos(g * 2);
+      ctx.beginPath(); ctx.moveTo(pad.l, gy); ctx.lineTo(W - pad.r, gy); ctx.stroke();
+      ctx.fillStyle = '#9ca3af'; ctx.font = '11px Inter, sans-serif'; ctx.textAlign = 'right';
+      ctx.fillText((g * 2) + '%', pad.l - 6, gy + 4);
+    }
+    // X labels
+    ctx.textAlign = 'center'; ctx.fillStyle = '#9ca3af'; ctx.font = '10px Inter, sans-serif';
+    for (var i = 0; i < labels.length; i += 4) {
+      ctx.fillText(labels[i], xPos(i), H - pad.b + 18);
+    }
+    // Line
+    ctx.beginPath();
+    ctx.strokeStyle = '#ef4444';
+    ctx.lineWidth = 2.5;
+    ctx.lineJoin = 'round';
+    for (var i = 0; i < data.length; i++) {
+      if (i === 0) ctx.moveTo(xPos(i), yPos(data[i]));
+      else ctx.lineTo(xPos(i), yPos(data[i]));
+    }
+    ctx.stroke();
+    // Fill area
+    ctx.lineTo(xPos(data.length - 1), yPos(0));
+    ctx.lineTo(xPos(0), yPos(0));
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(239,68,68,0.08)';
+    ctx.fill();
+    // Dots
+    for (var i = 0; i < data.length; i++) {
+      ctx.beginPath();
+      ctx.arc(xPos(i), yPos(data[i]), 3.2, 0, Math.PI * 2);
+      ctx.fillStyle = '#ef4444';
+      ctx.fill();
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+  }
+
+  // ========== Bar Chart ==========
+  function drawBarChart(vals) {
+    var ctx = getCanvasCtx('chartBar');
+    var c = ctx.canvas;
+    var W = c._w, H = c._h;
+    var pad = { t: 14, r: 16, b: 62, l: 38 };
+    var maxV = 50;
+    var cw = W - pad.l - pad.r, ch = H - pad.t - pad.b;
+    var barW = (cw / barCats.length) * 0.6;
+    var gap = cw / barCats.length;
+
+    // Grid
+    ctx.strokeStyle = '#e5e7eb'; ctx.lineWidth = 1;
+    for (var g = 0; g <= 5; g++) {
+      var gy = pad.t + ch - (g * 10 / maxV) * ch;
+      ctx.beginPath(); ctx.moveTo(pad.l, gy); ctx.lineTo(W - pad.r, gy); ctx.stroke();
+      ctx.fillStyle = '#9ca3af'; ctx.font = '11px Inter, sans-serif'; ctx.textAlign = 'right';
+      ctx.fillText(g * 10, pad.l - 6, gy + 4);
+    }
+    // Bars
+    for (var i = 0; i < barCats.length; i++) {
+      var x = pad.l + gap * i + (gap - barW) / 2;
+      var bh = (vals[i] / maxV) * ch;
+      var y = pad.t + ch - bh;
+      var grad = ctx.createLinearGradient(x, y, x, pad.t + ch);
+      grad.addColorStop(0, '#f97316');
+      grad.addColorStop(1, '#fdba74');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.moveTo(x + 3, y);
+      ctx.lineTo(x + barW - 3, y);
+      ctx.quadraticCurveTo(x + barW, y, x + barW, y + 3);
+      ctx.lineTo(x + barW, pad.t + ch);
+      ctx.lineTo(x, pad.t + ch);
+      ctx.lineTo(x, y + 3);
+      ctx.quadraticCurveTo(x, y, x + 3, y);
+      ctx.fill();
+      // Value on top
+      ctx.fillStyle = '#374151'; ctx.font = '600 11px Inter, sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(vals[i], x + barW / 2, y - 5);
+      // Label
+      ctx.save();
+      ctx.translate(x + barW / 2, pad.t + ch + 10);
+      ctx.rotate(-Math.PI / 5);
+      ctx.fillStyle = '#6b7280'; ctx.font = '10px Noto Sans JP, sans-serif'; ctx.textAlign = 'right';
+      ctx.fillText(barCats[i], 0, 0);
+      ctx.restore();
+    }
+  }
+
+  // ========== Donut Chart ==========
+  function drawDonutChart(items) {
+    var ctx = getCanvasCtx('chartDonut');
+    var c = ctx.canvas;
+    var W = c._w, H = c._h;
+    var cx = W * 0.38, cy = H * 0.5;
+    var R = Math.min(cx - 20, cy - 20, 90);
+    var r = R * 0.55;
+    var total = 0;
+    for (var i = 0; i < items.length; i++) total += items[i].val;
+    var startA = -Math.PI / 2;
+    for (var i = 0; i < items.length; i++) {
+      var sweep = (items[i].val / total) * Math.PI * 2;
+      ctx.beginPath();
+      ctx.arc(cx, cy, R, startA, startA + sweep);
+      ctx.arc(cx, cy, r, startA + sweep, startA, true);
+      ctx.closePath();
+      ctx.fillStyle = items[i].color;
+      ctx.fill();
+      startA += sweep;
+    }
+    // Center circle
+    ctx.beginPath();
+    ctx.arc(cx, cy, r - 1, 0, Math.PI * 2);
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+    // Center text
+    ctx.fillStyle = '#374151'; ctx.font = '600 13px Inter, sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('NG率', cx, cy - 4);
+    ctx.fillStyle = '#6b7280'; ctx.font = '11px Inter, sans-serif';
+    ctx.fillText('製品別', cx, cy + 14);
+    // Legend
+    var lx = W * 0.68, ly = 28;
+    for (var i = 0; i < items.length; i++) {
+      ctx.fillStyle = items[i].color;
+      ctx.beginPath();
+      ctx.arc(lx, ly + i * 22, 5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#374151';
+      ctx.font = '11px Noto Sans JP, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(items[i].name, lx + 12, ly + i * 22 + 4);
+      ctx.fillStyle = '#9ca3af';
+      ctx.font = '11px Inter, sans-serif';
+      ctx.fillText(items[i].val + '%', lx + 12 + ctx.measureText(items[i].name).width + 6, ly + i * 22 + 4);
+    }
+  }
+
+  // ========== Update KPI display ==========
+  function updateKpis() {
+    kpiTotal.textContent = totalCount;
+    kpiPass.textContent  = passCount;
+    kpiNg.textContent    = ngCount;
+    kpiRate.textContent   = (totalCount > 0 ? (ngCount / totalCount * 100).toFixed(2) : '0.00') + '%';
+  }
+
+  // ========== Add table row ==========
+  function addTableRow(isNg) {
+    var tbody = document.querySelector('.table-card tbody');
+    if (!tbody) return;
+    var prod = products[Math.floor(Math.random() * products.length)];
+    var insp = inspectors[Math.floor(Math.random() * inspectors.length)];
+    var reason = isNg ? ngReasons[Math.floor(Math.random() * ngReasons.length)] : '';
+    var now = new Date();
+    var ts = now.getFullYear() + '-'
+      + String(now.getMonth() + 1).padStart(2, '0') + '-'
+      + String(now.getDate()).padStart(2, '0') + ' '
+      + String(now.getHours()).padStart(2, '0') + ':'
+      + String(now.getMinutes()).padStart(2, '0');
+    lotSeq++;
+    var lot = 'LOT' + now.getFullYear()
+      + String(now.getMonth() + 1).padStart(2, '0')
+      + String(now.getDate()).padStart(2, '0')
+      + '-' + String(lotSeq).padStart(4, '0');
+
+    var tr = document.createElement('tr');
+    tr.innerHTML =
+      '<td>' + ts + '</td>' +
+      '<td>' + prod.code + '</td>' +
+      '<td>' + prod.name + '</td>' +
+      '<td>' + lot + '</td>' +
+      '<td><span class="badge ' + (isNg ? 'badge-ng' : 'badge-ok') + '">' + (isNg ? 'NG' : 'OK') + '</span></td>' +
+      '<td>' + reason + '</td>' +
+      '<td>' + insp + '</td>';
+    tbody.insertBefore(tr, tbody.firstChild);
+    // Keep table at a reasonable size
+    while (tbody.children.length > 20) {
+      tbody.removeChild(tbody.lastChild);
+    }
+  }
+
+  // ========== Tick: called every 3 seconds ==========
+  function tick() {
+    // Determine new inspections
+    var added = Math.random() < 0.5 ? 1 : 2;
+    for (var a = 0; a < added; a++) {
+      totalCount++;
+      var isNg = Math.random() < 0.15;
+      if (isNg) {
+        ngCount++;
+      } else {
+        passCount++;
+      }
+      addTableRow(isNg);
+    }
+
+    // Update KPIs
+    updateKpis();
+
+    // Update line chart — add new point (current NG rate), shift left
+    var currentRate = totalCount > 0 ? +(ngCount / totalCount * 100).toFixed(1) : 0;
+    lineData.push(currentRate);
+    if (lineData.length > 20) {
+      lineData.shift();
+      lineLabelStart++;
+    }
+    drawLineChart(lineData);
+
+    // Update bar chart — fluctuate each bar ±1-2
+    for (var i = 0; i < barVals.length; i++) {
+      var delta = Math.floor(Math.random() * 3) - 1; // -1, 0, or +1
+      barVals[i] = Math.max(5, Math.min(49, barVals[i] + delta));
+    }
+    drawBarChart(barVals);
+
+    // Update donut chart — minor fluctuation
+    for (var i = 0; i < donutItems.length; i++) {
+      var d = Math.floor(Math.random() * 3) - 1;
+      donutItems[i].val = Math.max(3, donutItems[i].val + d);
+    }
+    drawDonutChart(donutItems);
+  }
+
+  // ========== Initial draw ==========
+  drawLineChart(lineData);
+  drawBarChart(barVals);
+  drawDonutChart(donutItems);
+
+  // ========== Start live updates ==========
+  setInterval(tick, 3000);
+})();
+</script>
+</body>
+</html>

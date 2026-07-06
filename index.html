@@ -16,8 +16,7 @@
   <header class="site-header" id="header">
     <div class="header-inner">
       <a href="#top" class="logo">
-        <span class="logo-text">PUBCIR</span>
-        <span class="logo-sub">LLC</span>
+        <img src="img/pubcir_logo.png" alt="PUBCIR">
       </a>
       <button class="hamburger" id="hamburger" aria-label="メニュー">
         <span></span><span></span><span></span>
@@ -28,6 +27,7 @@
           <li><a href="#service">SERVICE</a></li>
           <li><a href="#solution">SOLUTION</a></li>
           <li><a href="#case">CASE</a></li>
+          <li><a href="demo.html">DEMO</a></li>
           <li><a href="company.html">COMPANY</a></li>
           <li><a href="contact.html" class="nav-cta">CONTACT</a></li>
         </ul>
@@ -65,8 +65,8 @@
           <svg viewBox="0 0 500 450" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#0891B2;stop-opacity:0.8"/>
-                <stop offset="100%" style="stop-color:#14B8A6;stop-opacity:0.4"/>
+                <stop offset="0%" style="stop-color:#007CBA;stop-opacity:0.8"/>
+                <stop offset="100%" style="stop-color:#0098E5;stop-opacity:0.4"/>
               </linearGradient>
               <filter id="glow">
                 <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
@@ -79,48 +79,48 @@
             <!-- Connection Lines -->
             <path class="data-line" d="M100,80 L250,80 L250,150" stroke="url(#lineGradient)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
             <path class="data-line delay-line-1" d="M400,80 L250,80 L250,150" stroke="url(#lineGradient)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
-            <path class="data-line delay-line-2" d="M250,200 L250,250" stroke="url(#lineGradient)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
-            <path class="data-line delay-line-3" d="M250,310 L150,370" stroke="url(#lineGradient)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
-            <path class="data-line delay-line-4" d="M250,310 L350,370" stroke="url(#lineGradient)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+            <path class="data-line delay-line-2" d="M250,210 L250,260" stroke="url(#lineGradient)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+            <path class="data-line delay-line-3" d="M250,330 L150,385" stroke="url(#lineGradient)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+            <path class="data-line delay-line-4" d="M250,330 L350,385" stroke="url(#lineGradient)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
             <!-- PLC Node -->
-            <rect x="55" y="45" width="90" height="60" rx="12" fill="rgba(8,145,178,0.06)" stroke="#0891B2" stroke-width="1.5" filter="url(#glow)"/>
-            <text x="100" y="72" text-anchor="middle" fill="#0891B2" font-size="11" font-weight="600">PLC</text>
-            <text x="100" y="90" text-anchor="middle" fill="#64748B" font-size="9">制御装置</text>
+            <rect x="40" y="38" width="120" height="75" rx="14" fill="rgba(0,124,186,0.06)" stroke="#007CBA" stroke-width="1.5" filter="url(#glow)"/>
+            <text x="100" y="72" text-anchor="middle" fill="#007CBA" font-size="16" font-weight="700">PLC</text>
+            <text x="100" y="96" text-anchor="middle" fill="#64748B" font-size="12">制御装置</text>
             <!-- Sensor Node -->
-            <rect x="355" y="45" width="90" height="60" rx="12" fill="rgba(20,184,166,0.06)" stroke="#14B8A6" stroke-width="1.5" filter="url(#glow)"/>
-            <text x="400" y="72" text-anchor="middle" fill="#14B8A6" font-size="11" font-weight="600">Sensor</text>
-            <text x="400" y="90" text-anchor="middle" fill="#64748B" font-size="9">センサー</text>
+            <rect x="340" y="38" width="120" height="75" rx="14" fill="rgba(0,152,229,0.06)" stroke="#0098E5" stroke-width="1.5" filter="url(#glow)"/>
+            <text x="400" y="72" text-anchor="middle" fill="#0098E5" font-size="16" font-weight="700">Sensor</text>
+            <text x="400" y="96" text-anchor="middle" fill="#64748B" font-size="12">センサー</text>
             <!-- Data Collection Node -->
-            <rect x="185" y="145" width="130" height="60" rx="12" fill="rgba(8,145,178,0.08)" stroke="#0891B2" stroke-width="1.5" filter="url(#glow)"/>
-            <text x="250" y="172" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="600">Data Collection</text>
-            <text x="250" y="190" text-anchor="middle" fill="#64748B" font-size="9">データ収集・変換</text>
+            <rect x="170" y="145" width="160" height="75" rx="14" fill="rgba(0,124,186,0.08)" stroke="#007CBA" stroke-width="1.5" filter="url(#glow)"/>
+            <text x="250" y="178" text-anchor="middle" fill="#0F172A" font-size="15" font-weight="700">Data Collection</text>
+            <text x="250" y="200" text-anchor="middle" fill="#64748B" font-size="12">データ収集・変換</text>
             <!-- Database Node -->
-            <rect x="185" y="250" width="130" height="60" rx="12" fill="rgba(6,182,212,0.06)" stroke="#06B6D4" stroke-width="1.5" filter="url(#glow)"/>
-            <text x="250" y="277" text-anchor="middle" fill="#0891B2" font-size="11" font-weight="600">Database</text>
-            <text x="250" y="295" text-anchor="middle" fill="#64748B" font-size="9">蓄積・管理</text>
+            <rect x="170" y="255" width="160" height="75" rx="14" fill="rgba(0,124,186,0.06)" stroke="#007CBA" stroke-width="1.5" filter="url(#glow)"/>
+            <text x="250" y="288" text-anchor="middle" fill="#007CBA" font-size="15" font-weight="700">Database</text>
+            <text x="250" y="310" text-anchor="middle" fill="#64748B" font-size="12">蓄積・管理</text>
             <!-- SCADA Node -->
-            <rect x="80" y="355" width="130" height="60" rx="12" fill="rgba(8,145,178,0.06)" stroke="#0891B2" stroke-width="1.5" filter="url(#glow)"/>
-            <text x="145" y="382" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="600">SCADA</text>
-            <text x="145" y="400" text-anchor="middle" fill="#64748B" font-size="9">監視・可視化</text>
+            <rect x="60" y="370" width="160" height="70" rx="14" fill="rgba(0,124,186,0.06)" stroke="#007CBA" stroke-width="1.5" filter="url(#glow)"/>
+            <text x="140" y="400" text-anchor="middle" fill="#0F172A" font-size="15" font-weight="700">SCADA</text>
+            <text x="140" y="422" text-anchor="middle" fill="#64748B" font-size="12">監視・可視化</text>
             <!-- Dashboard Node -->
-            <rect x="290" y="355" width="130" height="60" rx="12" fill="rgba(20,184,166,0.06)" stroke="#14B8A6" stroke-width="1.5" filter="url(#glow)"/>
-            <text x="355" y="382" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="600">Dashboard</text>
-            <text x="355" y="400" text-anchor="middle" fill="#64748B" font-size="9">分析・改善</text>
+            <rect x="280" y="370" width="160" height="70" rx="14" fill="rgba(0,152,229,0.06)" stroke="#0098E5" stroke-width="1.5" filter="url(#glow)"/>
+            <text x="360" y="400" text-anchor="middle" fill="#0F172A" font-size="15" font-weight="700">Dashboard</text>
+            <text x="360" y="422" text-anchor="middle" fill="#64748B" font-size="12">分析・改善</text>
             <!-- Animated dots -->
-            <circle r="3" fill="#0891B2" filter="url(#glow)">
+            <circle r="4" fill="#007CBA" filter="url(#glow)">
               <animateMotion dur="3s" repeatCount="indefinite" path="M100,80 L250,80 L250,150"/>
             </circle>
-            <circle r="3" fill="#14B8A6" filter="url(#glow)">
+            <circle r="4" fill="#0098E5" filter="url(#glow)">
               <animateMotion dur="3s" repeatCount="indefinite" path="M400,80 L250,80 L250,150" begin="1s"/>
             </circle>
-            <circle r="3" fill="#06B6D4" filter="url(#glow)">
-              <animateMotion dur="2s" repeatCount="indefinite" path="M250,200 L250,250" begin="0.5s"/>
+            <circle r="4" fill="#007CBA" filter="url(#glow)">
+              <animateMotion dur="2s" repeatCount="indefinite" path="M250,210 L250,260" begin="0.5s"/>
             </circle>
-            <circle r="3" fill="#0891B2" filter="url(#glow)">
-              <animateMotion dur="2.5s" repeatCount="indefinite" path="M250,310 L150,370" begin="1.5s"/>
+            <circle r="4" fill="#007CBA" filter="url(#glow)">
+              <animateMotion dur="2.5s" repeatCount="indefinite" path="M250,330 L150,385" begin="1.5s"/>
             </circle>
-            <circle r="3" fill="#14B8A6" filter="url(#glow)">
-              <animateMotion dur="2.5s" repeatCount="indefinite" path="M250,310 L350,370" begin="2s"/>
+            <circle r="4" fill="#0098E5" filter="url(#glow)">
+              <animateMotion dur="2.5s" repeatCount="indefinite" path="M250,330 L350,385" begin="2s"/>
             </circle>
           </svg>
         </div>
@@ -186,7 +186,7 @@
       <div class="service-grid">
         <div class="service-card scroll-reveal">
           <div class="service-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0891B2" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#007CBA" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
           <h3 class="service-title">PLC IoTソリューション</h3>
           <p class="service-desc">PLCから設備データを取得し、データベースやクラウド、社内システムへ連携。稼働状況、品質情報、センサー値などを活用できる形に整えます。</p>
@@ -199,7 +199,7 @@
         </div>
         <div class="service-card scroll-reveal">
           <div class="service-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="1.5"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#007CBA" stroke-width="1.5"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
           <h3 class="service-title">SCADA・監視画面開発</h3>
           <p class="service-desc">製造現場の状態を見える化する監視画面や操作画面を設計・開発。現場担当者が直感的に使えるUIを重視します。</p>
@@ -212,7 +212,7 @@
         </div>
         <div class="service-card scroll-reveal">
           <div class="service-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#007CBA" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
           </div>
           <h3 class="service-title">トレーサビリティシステム</h3>
           <p class="service-desc">製品シリアル、工程履歴、検査結果、設備データを紐づけ、品質管理や不具合解析に活用できる仕組みを構築します。</p>
@@ -225,7 +225,7 @@
         </div>
         <div class="service-card scroll-reveal">
           <div class="service-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0891B2" stroke-width="1.5"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#007CBA" stroke-width="1.5"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
           </div>
           <h3 class="service-title">製造業向けソフトウェア開発</h3>
           <p class="service-desc">装置メーカーや工場ごとの業務に合わせ、専用アプリケーションや業務支援ツールを開発します。</p>
@@ -378,8 +378,60 @@
     </div>
   </section>
 
+  <!-- Demo Section -->
+  <section class="section section-alt" id="demo">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="section-label">DEMO</span>
+        <h2 class="section-title">実際のシステムを体験する</h2>
+      </div>
+      <p class="company-intro scroll-reveal" style="margin-bottom:12px">
+        私たちが構築するシステムのデモをご覧いただけます。<br>
+        リアルタイムで動くダッシュボードを実際に操作してみてください。
+      </p>
+      <p class="company-intro scroll-reveal" style="font-size:0.82rem;color:#64748B;margin-bottom:48px">
+        ※ 各デモは実際の導入実績を基に内容を抽象化し、Web上で動作を体験いただけるよう作成したものです。表示データはサンプルです。
+      </p>
+      <div class="demo-preview-grid">
+        <a href="demo/production-monitor.html" class="demo-preview-card scroll-reveal">
+          <div class="demo-preview-canvas-wrap">
+            <canvas id="previewProduction" width="400" height="220"></canvas>
+          </div>
+          <div class="demo-preview-info">
+            <span class="demo-card-badge" style="margin:0 0 8px">Line Monitor</span>
+            <h3>生産ライン監視ダッシュボード</h3>
+            <p>4ラインの稼働状況・サイクルタイム・生産数をリアルタイムに一元監視</p>
+            <span class="demo-link-text">デモを見る →</span>
+          </div>
+        </a>
+        <a href="demo/quality-inspection.html" class="demo-preview-card scroll-reveal">
+          <div class="demo-preview-canvas-wrap">
+            <canvas id="previewQuality" width="400" height="220"></canvas>
+          </div>
+          <div class="demo-preview-info">
+            <span class="demo-card-badge" style="margin:0 0 8px">Quality</span>
+            <h3>品質検査データ可視化システム</h3>
+            <p>NG率推移・パレート図・製品別品質データをダッシュボードで一望</p>
+            <span class="demo-link-text">デモを見る →</span>
+          </div>
+        </a>
+        <a href="demo/maintenance.html" class="demo-preview-card scroll-reveal">
+          <div class="demo-preview-canvas-wrap">
+            <canvas id="previewMaintenance" width="400" height="220"></canvas>
+          </div>
+          <div class="demo-preview-info">
+            <span class="demo-card-badge" style="margin:0 0 8px">Maintenance</span>
+            <h3>設備メンテナンス管理システム</h3>
+            <p>MTBF/MTTR統計・点検アラート・故障履歴を一元管理</p>
+            <span class="demo-link-text">デモを見る →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Process Section -->
-  <section class="section section-alt">
+  <section class="section section-light">
     <div class="container">
       <div class="section-header scroll-reveal">
         <span class="section-label">PROCESS</span>
@@ -441,13 +493,14 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div>
-        <div class="footer-logo-text">PUBCIR</div>
+        <a href="index.html" class="logo"><img src="img/pubcir_logo.png" alt="PUBCIR" style="height:32px"></a>
         <p class="footer-tagline">製造現場のデータを、使えるシステムへ。</p>
       </div>
       <nav class="footer-nav">
         <a href="#top">TOP</a>
         <a href="#service">SERVICE</a>
         <a href="#case">CASE</a>
+        <a href="demo.html">DEMO</a>
         <a href="company.html">COMPANY</a>
         <a href="contact.html">CONTACT</a>
       </nav>
